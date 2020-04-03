@@ -49,7 +49,10 @@ class Solution:
                         myAns = myAns + myDef(x,r-1)
             myCount[i] = myCount[i] + 1
             return(myAns)
-        for i in myCount.keys():
-            mySum = mySum + myDef(i,len(A)-1)
+        if len(myCount.keys()) == 1 and len(mySqrs[list(myCount.keys())[0]]) == 0:
+            mySum = 0
+        else:
+            for i in myCount.keys():
+                mySum = mySum + myDef(i,len(A)-1)
         del tmpSqrt,tmpSum
         return(mySum)
